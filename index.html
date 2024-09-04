@@ -2,110 +2,60 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wireframe Example</title>
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
->
+    <title>Adopta un Perro</title>
     <style>
-       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #e6480a;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .content {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .game {
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Adopta un Perro</h1>
+        <p>Encuentra a tu nuevo mejor amigo</p>
+    </header>
 
-<header>
-    <div class="container">
-        <h1>Título del sitio</h1>
+    <div class="content">
+        <!-- Imagen -->
+        <h2>Perros y Gatos en Adopción</h2>
+        <img src="https://img.asmedia.epimg.net/resizer/v2/ITOC2YBOKNHEPMZLLK6XGZDVGY.jpg?auth=164b4b90437a813ea4f1729426eef21abdbb34f7e1f2ef1207f072255ae87f50&width=1472&height=1104&smart=true" alt="Perros criollitos" width="400">
+
+        <!-- Video de YouTube -->
+        <h3>Conoce más sobre la adopción</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/mlfzDp9rjos?si=bM8ppSSWe7ww1zJm" 
+            title="Video sobre adopción" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+
+        <!-- Audio -->
+        <h3>Escucha una historia de adopción</h3>
+        <h3>Escucha una historia de adopción en Spotify</h3>
+<iframe src="https://open.spotify.com/episode/36MpJvDtdUaMzxTi6mA9E1?si=xOVwH3ytR8Wc3Mf9t5JZtw" width="400" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+        </audio>
+        <h3>Noticias sobre Adopción de Mascotas</h3>
+        <p>Lee sobre casos inspiradores de adopción de perros en la siguiente noticia:</p>
+        <a href="https://www.eltiempo.com/vida/medio-ambiente/la-historia-de-mi-mascota-casos-de-adopcion-de-perros-200736" target="_blank">
+            La historia de mi mascota: casos de adopción de perros
+        </a>
+        
     </div>
-</header>
-
-<main class="container">
-
-
-    <select id="citySelector">
-        <option value="">Selecciona una ciudad</option>
-        <option value="America/Bogota">Bogotá</option>
-        <option value="Europe/Moscow">Moscú</option>
-        <option value="Australia/Sydney">Sidney</option>
-        <option value="Europe/Paris">París</option>
-        <option value="Asia/Tokyo">Tokio</option>
-    </select>
-    <div id="timeDisplay">
-        <span>Hora actual: <data value="">Selecciona una ciudad</data></span>
-    </div>
-    
-    
-    <div class="image-container">
-        <img src="https://placehold.co/800x360" alt="Imagen de un carro">
-    </div>
-    
-    <div class="text-section">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-        <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
-        <p>Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>
-        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-    </div>
-    
-    <div class="button-container">
-        <div style="background-color: #b3e5fc; padding: 50px;">
-            <button>Button</button>
-        </div>
-    </div>
-</main>
-
-<footer>
-<credit>
-    <p>Autor: Juan Diego Gutierrez</p>
-    </credit>    
-</footer>
-<script>
-   document.getElementById('citySelector').addEventListener('change', function() {
-    const city = this.value;
-    const apiUrl = `https://worldtimeapi.org/api/timezone/${city}`;
-
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            const datetime = data.datetime;
-            const timezone = data.timezone;
-
-            // Convert datetime to the local time of the selected city
-            const time = new Date(datetime).toLocaleString('en-US', {
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: true,
-                timeZone: timezone
-            });
-
-            const dataElement = document.querySelector('#timeDisplay data');
-            dataElement.setAttribute('value', datetime);
-            dataElement.textContent = time;
-
-            console.log('Time:', datetime);
-            console.log('Converted time:', time);
-            console.log('City selected:', this.value);
-
-            updateBackground(time);      
-
-
-        })
-        .catch(error => {
-            console.error('Error fetching the time:', error);
-        });
-});
-function updateBackground(time) {
-        setTimeout(() => {
-            const body = document.querySelector('body');
-            if (time.includes('AM')) {
-                body.style.background = 'rgb(152,184,0)';
-                body.style.background = 'linear-gradient(0deg, rgba(152,184,0,1) 0%, rgba(0,237,255,1) 78%)';
-            } else if (time.includes('PM')) {
-                body.style.background = 'rgb(184,80,0)';
-                body.style.background = 'linear-gradient(0deg, rgba(184,80,0,1) 0%, rgba(0,67,72,1) 78%)';
-            }
-        }, 1000);
-    }
-</script>
 </body>
 </html>
